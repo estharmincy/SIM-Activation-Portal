@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIM Activation Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="hero">
+        <h1>SIM Activation Portal</h1>
+        <p>Your Trusted SIM Service Portal</p>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <button type="button" class="nav-link active" data-page="home">
+            Home
+        </button>
+
+        <button type="button" class="nav-link" data-page="sim">
+            SIM Validation
+        </button>
+
+        <button type="button" class="nav-link" data-page="offers">
+            Special Offers
+        </button>
+
+        <button type="button" class="nav-link" data-page="register">
+            Registration
+        </button>
+
+        <button type="button" class="nav-link" data-page="verify">
+            Verification
+        </button>
+
+        <button type="button" class="nav-link" data-page="address">
+            Update Address
+        </button>
+
+        <button type="button" class="nav-link" data-page="idproof">
+            ID Proof
+        </button>
+
+        <button type="button" class="nav-link" data-page="activation">
+            SIM Activation
+        </button>
+    </nav>
+
+    <main class="container">
+
+        <!-- 1. HOME PAGE -->
+        <section class="page active" id="home">
+            <div class="card home-card">
+                <h2>Welcome to SIM Activation Portal!</h2>
+
+                <p>
+                    Register your customer details, validate your SIM,
+                    explore special offers and activate your SIM easily.
+                </p>
+
+                <button type="button" id="homeValidateSimBtn">
+                    Validate SIM
+                </button>
+            </div>
+        </section>
+
+        <!-- 2. SIM VALIDATION -->
+        <section class="page" id="sim">
+            <div class="card">
+                <h2>SIM Validation</h2>
+
+                <p>Enter your 19 or 20 digit SIM number.</p>
+
+                <form id="simForm">
+                    <label for="simNumber">SIM Number</label>
+
+                    <input
+                        type="text"
+                        id="simNumber"
+                        name="simNumber"
+                        inputmode="numeric"
+                        pattern="[0-9]{19,20}"
+                        maxlength="20"
+                        placeholder="Enter SIM number"
+                        required
+                    >
+
+                    <button type="submit">Validate SIM</button>
+                </form>
+
+                <div id="simResult" class="result" hidden></div>
+            </div>
+        </section>
+
+        <!-- 3. SPECIAL OFFERS -->
+        <section class="page" id="offers">
+            <div class="card">
+                <h2>Special Offers</h2>
+
+                <p>Select your preferred recharge plan.</p>
+
+                <div id="offersResult" class="offers-list">
+
+                    <button
+                        type="button"
+                        class="offer"
+                        data-offer="299"
+                        aria-pressed="false"
+                    >
+                        <h3>Starter Pack</h3>
+                        <h2>₹299</h2>
+                        <p>Unlimited Calls</p>
+                        <p>1.5GB Data per day</p>
+                        <p>Validity: 28 Days</p>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="offer"
+                        data-offer="399"
+                        aria-pressed="false"
+                    >
+                        <h3>Popular Pack</h3>
+                        <h2>₹399</h2>
+                        <p>Unlimited Calls</p>
+                        <p>2GB Data per day</p>
+                        <p>Validity: 28 Days</p>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="offer"
+                        data-offer="499"
+                        aria-pressed="false"
+                    >
+                        <h3>Premium Pack</h3>
+                        <h2>₹499</h2>
+                        <p>Unlimited Calls</p>
+                        <p>3GB Data per day</p>
+                        <p>Validity: 56 Days</p>
+                    </button>
+
+                </div>
+
+                <p id="selectedOfferMessage" class="result" hidden></p>
+
+                <button
+                    type="button"
+                    id="continueToRegister"
+                    disabled
+                >
+                    Continue to Registration
+                </button>
+            </div>
+        </section>
+
+        <!-- 4. CUSTOMER REGISTRATION -->
+        <section class="page" id="register">
+            <div class="card">
+                <h2>Customer Registration</h2>
+
+                <p>Enter your details to register a new customer.</p>
+
+                <form id="registerForm" class="registration-grid">
+
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+
+                        <input
+                            type="text"
+                            id="firstName"
+                            placeholder="Enter first name"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+
+                        <input
+                            type="text"
+                            id="lastName"
+                            placeholder="Enter last name"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter email address"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mobileNumber">Mobile Number</label>
+
+                        <input
+                            type="tel"
+                            id="mobileNumber"
+                            inputmode="numeric"
+                            pattern="[0-9]{10}"
+                            maxlength="10"
+                            placeholder="Enter 10 digit mobile number"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dob">Date of Birth</label>
+
+                        <input
+                            type="date"
+                            id="dob"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regSimNumber">SIM Number</label>
+
+                        <input
+                            type="text"
+                            id="regSimNumber"
+                            inputmode="numeric"
+                            pattern="[0-9]{19,20}"
+                            maxlength="20"
+                            placeholder="Enter SIM number"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="regAddress">Address</label>
+
+                        <textarea
+                            id="regAddress"
+                            rows="3"
+                            placeholder="Enter your address"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="idProofTypeReg">ID Proof Type</label>
+
+                        <select id="idProofTypeReg" required>
+                            <option value="">Select ID proof</option>
+                            <option value="AADHAAR">Aadhaar</option>
+                            <option value="PAN">PAN</option>
+                            <option value="PASSPORT">Passport</option>
+                            <option value="DRIVING_LICENCE">Driving Licence</option>
+                            <option value="VOTER_ID">Voter ID</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="idProofNumberReg">ID Proof Number</label>
+
+                        <input
+                            type="text"
+                            id="idProofNumberReg"
+                            placeholder="Enter ID proof number"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group full-width">
+                        <button type="submit" id="registerBtn">
+                            Register Customer
+                        </button>
+                    </div>
+
+                </form>
+
+                <div id="registerResult" class="result" hidden></div>
+            </div>
+        </section>
+
+        <!-- 5. CUSTOMER VERIFICATION -->
+        <section class="page" id="verify">
+            <div class="card">
+                <h2>Customer Verification</h2>
+
+                <p>Verify your registered email and date of birth.</p>
+
+                <form id="verifyForm">
+
+                    <label for="verifyEmail">Email</label>
+
+                    <input
+                        type="email"
+                        id="verifyEmail"
+                        placeholder="Enter registered email"
+                        required
+                    >
+
+                    <label for="verifyDob">Date of Birth</label>
+
+                    <input
+                        type="date"
+                        id="verifyDob"
+                        required
+                    >
+
+                    <button type="submit" id="verifyBtn">
+                        Verify Customer
+                    </button>
+
+                </form>
+
+                <div id="verifyResult" class="result" hidden></div>
+            </div>
+        </section>
+
+        <!-- 6. UPDATE ADDRESS -->
+        <section class="page" id="address">
+            <div class="card">
+                <h2>Update Customer Address</h2>
+
+                <p>Enter your registered Customer ID and new address.</p>
+
+                <form id="addressForm">
+
+                    <label for="addressCustomerId">Customer ID</label>
+
+                    <input
+                        type="number"
+                        id="addressCustomerId"
+                        min="1"
+                        placeholder="Enter Customer ID"
+                        required
+                    >
+
+                    <label for="newAddress">New Address</label>
+
+                    <textarea
+                        id="newAddress"
+                        rows="3"
+                        placeholder="Enter new address"
+                        required
+                    ></textarea>
+
+                    <button type="submit" id="updateAddressBtn">
+                        Update Address
+                    </button>
+
+                </form>
+
+                <div id="addressResult" class="result" hidden></div>
+            </div>
+        </section>
+
+        <!-- 7. ID PROOF VALIDATION -->
+        <section class="page" id="idproof">
+            <div class="card">
+                <h2>Validate ID Proof</h2>
+
+                <p>Enter the ID proof details used during registration.</p>
+
+                <form id="idProofForm">
+
+                    <label for="proofType">ID Proof Type</label>
+
+                    <select id="proofType" required>
+                        <option value="">Select ID proof</option>
+                        <option value="AADHAAR">Aadhaar</option>
+                        <option value="PAN">PAN</option>
+                        <option value="PASSPORT">Passport</option>
+                        <option value="DRIVING_LICENCE">Driving Licence</option>
+                        <option value="VOTER_ID">Voter ID</option>
+                    </select>
+
+                    <label for="proofNumber">ID Proof Number</label>
+
+                    <input
+                        type="text"
+                        id="proofNumber"
+                        placeholder="Enter ID proof number"
+                        required
+                    >
+
+                    <button type="submit" id="validateIdProofBtn">
+                        Validate ID Proof
+                    </button>
+
+                </form>
+
+                <div id="proofResult" class="result" hidden></div>
+            </div>
+        </section>
+
+        <!-- 8. SIM ACTIVATION - FINAL STEP -->
+        <section class="page" id="activation">
+            <div class="card">
+                <h2>SIM Activation</h2>
+
+                <p>
+                    Enter your registered Customer ID to activate your SIM.
+                </p>
+
+                <form id="activationForm">
+
+                    <label for="activationCustomerId">Customer ID</label>
+
+                    <input
+                        type="number"
+                        id="activationCustomerId"
+                        min="1"
+                        placeholder="Enter registered Customer ID"
+                        required
+                    >
+
+                    <button type="submit" id="activateSimBtn">
+                        Activate SIM
+                    </button>
+
+                </form>
+
+                <div id="activationResult" class="result" hidden></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>SIM Activation Portal</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
